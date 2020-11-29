@@ -1,2 +1,3 @@
-# Data-Science-Cource-Final
-数据科学期末大作业
+# Data Science Cource Final
+
+这是这学期数据科学课的结课项目，老师一共给了三个选题，声音识别，车牌识别和图像转语音文本，打算就做车牌识别了。

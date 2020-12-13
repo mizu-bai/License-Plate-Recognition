@@ -28,10 +28,19 @@ if __name__ == "__main__":
     img_list = get_file_list(img_folder, [], "jpg")
     print(f"本次执行检索到 {str(len(img_list))} 张图像")
 
+    if "result" in os.listdir("./"):
+        print("result 目录已存在")
+    else:
+        os.makedirs("./result")
+        print("创建 result 目录保存图片")
+
     license_list = []
 
     i = 1
     for img in img_list:
-        print(f"正在识别第 {str(i)} 张图片……")
-        license_list.append(cut_license_plate(img))
+        print(f"正在识别第 {str(i)} 张图片")
+        cut_img_list = cut_license_plate(img)
+        for cut_img in cut_img_list:
+            cv.imwrite(f"./result/{i - 1}.jpg", cut_img)
+        license_list.append(cut_img)
         i += 1

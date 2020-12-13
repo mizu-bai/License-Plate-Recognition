@@ -30,7 +30,8 @@ def cut_license_plate(input_img):
     # cv.imshow("sbl_img", sbl_img)
 
     # 二值化
-    _, bin_img = cv.threshold(sbl_img, 0, 255, cv.THRESH_BINARY | cv.THRESH_OTSU)
+    _, bin_img = cv.threshold(sbl_img, 0, 255,
+                              cv.THRESH_BINARY | cv.THRESH_OTSU)
     # cv.imshow("bin_img", bin_img)
 
     # 闭操作
@@ -39,17 +40,16 @@ def cut_license_plate(input_img):
     # cv.imshow("cls_img", cls_img)
 
     # 发现轮廓
-    contours, hierarchy = cv.findContours(
-        cls_img, cv.RETR_EXTERNAL, cv.CHAIN_APPROX_SIMPLE
-    )
+    contours, hierarchy = cv.findContours(cls_img, cv.RETR_EXTERNAL,
+                                          cv.CHAIN_APPROX_SIMPLE)
     # print(contours)
 
     # 我国车牌长 440 mm, 宽 140 mm, 比例为 3.14
     length = 440
     width = 140
     ratio = length / width
-    area_min = 50 ** 2 * ratio
-    area_max = 125 ** 2 * ratio
+    area_min = 50**2 * ratio
+    area_max = 125**2 * ratio
     error = 0.5
     ratio_min = ratio * (1 - error)
     ratio_max = ratio * (1 + error)
@@ -81,14 +81,13 @@ def cut_license_plate(input_img):
             (0, 0, 255),
         )
 
-    cv.imshow("draw_img", draw_img)
+    # cv.imshow("draw_img", draw_img)
 
     # 根据矩形轮廓切割出车牌
     cut_img_list = []
     for rectangle in rectangles:
-        cut_img = src_img[
-            rectangle[1] + 15 : rectangle[3] - 15, rectangle[0] + 5 : rectangle[2] - 5
-        ]
+        cut_img = src_img[rectangle[1] + 15:rectangle[3] - 15,
+                          rectangle[0] + 5:rectangle[2] - 5]
         # cv.imshow("cut_img", cut_img)
         cut_img_list.append(cut_img)
 
@@ -99,13 +98,13 @@ def cut_license_plate(input_img):
         gray_img = cv.cvtColor(cut_img, cv.COLOR_BGR2GRAY)
         # Canny 边缘检测
         edge_img = cv.Canny(gray_img, 200, 200)
-        cv.imshow("edge_img", edge_img)
+        # cv.imshow("edge_img", edge_img)
         char_img = []
         char_img_list.append(edge_img)
 
     # 图片保持显示
-    cv.waitKey(0)
-    cv.destroyAllWindows()
+    # cv.waitKey(0)
+    # cv.destroyAllWindows()
 
     # 返回字符轮廓列表
     return char_img_list

@@ -4,6 +4,6 @@
 
 # 车牌分割
 
-在 cut_license_plate.py 中实现，大概效果这样
+在 `cut_license_plate.py` 中实现，大概效果这样
 
 ![example](https://raw.githubusercontent.com/mizu-bai/Data-Science-Cource-Final/main/example.png)

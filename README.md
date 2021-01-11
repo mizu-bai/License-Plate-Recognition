@@ -24,7 +24,7 @@
 
 车牌范围
 
-![]()
+![粤A3Y347车牌范围](https://github.com/mizu-bai/License-Plate-Recognition/raw/main/Demo/粤A3Y347车牌范围.png)
 
 分割结果
 

@@ -8,6 +8,28 @@
 
 测试数据分为三类，I 类和 II 类是裁剪过的车牌，但 II 类有较多干扰因素，如噪点较多，清晰度差，光照不均匀等，III 类是包含车牌的图片，需要寻找车牌，再进行字符分割。
 
+## 看看效果
+
+### I 类（II 类和这个差不多）
+
+原始图像
+
+![鲁JD9309](https://github.com/mizu-bai/License-Plate-Recognition/raw/main/Demo/鲁JD9309.jpg)
+
+分割结果
+
+![鲁JD9309分割结果](https://github.com/mizu-bai/License-Plate-Recognition/raw/main/Demo/鲁JD9309分割结果.png)
+
+### III 类
+
+车牌范围
+
+![]()
+
+分割结果
+
+![粤A3Y347分割结果](https://github.com/mizu-bai/License-Plate-Recognition/raw/main/Demo/粤A3Y347分割结果.png)
+
 ## 运行环境
 
 笔者的运行环境如下：
